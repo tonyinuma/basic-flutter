@@ -1,31 +1,17 @@
+import 'package:app01/screens/battery.dart';
+import 'package:app01/screens/settings.dart';
 import 'package:flutter/material.dart';
+import 'package:app01/home.dart';
 
 void main() { 
-  var app = MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(
-        title: Text("Mi primera App"),
-        centerTitle: true,
-      ),
-      body: Container(
-        child: Center(
-          child: Text(
-            "Hola mundo ♥",
-            style: TextStyle(
-             fontSize: 25)
-             )
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print('click');
-        },
-        child: Icon(Icons.linked_camera),
-        backgroundColor: Colors.lightBlue[600],
-      ),
+  runApp(
+    MaterialApp(
+      home:  Home(),
+      routes: <String, WidgetBuilder>{
+        Settings.routeName: (BuildContext context) => Settings(),
+        Battery.routeName: (BuildContext context) => Battery(),
+      } 
     ),
   );  
-
-  runApp(app);
 }
 
